@@ -128,15 +128,17 @@ class ArticlesController extends Controller
   {
     // echo $foo;
     // return __METHOD__ . '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다. : ' . $id;
-    //$article = \App\Article::findOrFail($id);
+    $article = \App\Article::findOrFail($id);
+    debug($article->toArray());
 
-    $article = \App\Article::latest()->paginate(3);
 
+    //$article = \App\Article::latest()->paginate(3);
+    
     //return $article->toArray();
     // Illuminate\Database\Eloquent\ModelNotFoundException예외발생가능성
     // dd($article);
     // return $article->toArray();
-    dd(view('articles.index', compact('articles'))->render());
+    //dd(view('articles.index', compact('articles'))->render());
     return view('articles.index', compact('articles'));
     
   }

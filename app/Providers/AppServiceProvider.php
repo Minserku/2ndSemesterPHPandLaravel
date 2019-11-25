@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //서비스 프로바이더 등록
+        if($this->app-environment('local')){
+          $this->app-register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 
     /**
